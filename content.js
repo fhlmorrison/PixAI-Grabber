@@ -35,7 +35,7 @@ const parseParams = (params) => {
     const clip_skip = '2'
     const ENSD = '31337'
 
-    const infoText = `${prompt}\nNegative prompt: ${negative_prompt}\nSteps: ${steps}, Sampler: ${sampler}, CFG scale: ${cfg_scale}, Size: ${width}x${height}, Model hash: ${model_hash}, Clip skip: ${clip_skip}, ENSD: ${ENSD}`;
+    const infoText = `${prompt}\nNegative prompt: ${negative_prompt}\nSteps: ${steps}, Sampler: ${sampler}, CFG scale: ${cfg_scale}, Seed: ${seed}, Size: ${width}x${height}, Model hash: ${model_hash}, Clip skip: ${clip_skip}, ENSD: ${ENSD}`;
     return infoText;
 }
 
