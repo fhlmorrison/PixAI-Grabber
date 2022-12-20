@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "PixAI Prompt Displayer",
+    "version": "1.0",
+  
+    "permissions": [
+      "activeTab"
+    ],
+
+    "content_scripts": [
+      {
+        "matches": ["https://pixai.art/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ]
+  }
