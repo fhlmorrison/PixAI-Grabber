@@ -27,7 +27,7 @@ const parseParams = (params) => {
     const model = params.model
     const operation = params.operation
 
-    if (operation != "t2i") {
+    if (operation == "i2i") {
         return ''
     }
 
@@ -42,7 +42,7 @@ const parseParams = (params) => {
 
 const parseRes = (res) => {
     const task = res.data.artwork.task
-    if (!task) { return task; }
+    if (!task) { console.log("No task associated"); return task; }
     const params = task.outputs.detailParameters
     const promptText = params.infotexts
     if (!promptText) { return parseParams(params) }
