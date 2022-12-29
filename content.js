@@ -156,7 +156,7 @@ main = async () => {
 }
 
 
-if (window.location.href.includes('artwork')) {
+if (window.location.href.includes('.art/artwork')) {
     setTimeout(main, 1000)
 } else {
     // Select the node that will be observed for mutations
