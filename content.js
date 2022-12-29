@@ -2,7 +2,7 @@ const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.bg-gray-100.p-4
 const promptTitleQuery = 'div.font-bold.text-primary-light'
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
-const MODELS = {"Anything V3.0": '6569e224', 'Anime': '925997e9'}
+const MODELS = { "Anything V3.0": '6569e224', 'Anime': '925997e9' }
 /**
  *  --Add icon--
  * Change prompt display to replace existing
