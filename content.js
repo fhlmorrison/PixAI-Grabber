@@ -41,7 +41,9 @@ const parseParams = (params) => {
 
 
 const parseRes = (res) => {
-    const task = res.data.artwork.task
+    const artwork  = res.data.artwork
+    if (!artwork) { console.log("No artwork associated"); return artwork; }
+    const task = artwork.task
     if (!task) { console.log("No task associated"); return task; }
     const params = task.outputs.detailParameters
     const promptText = params.infotexts
