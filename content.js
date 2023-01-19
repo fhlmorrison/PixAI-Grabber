@@ -15,21 +15,21 @@ const getArtId = () => {
     return targetElement.text.slice(26);
 }
 
-const parseParams = (params) => {
-    const prompt = params.prompt
-    const negative_prompt = params.negative_prompt
-    const steps = params.steps
-    const sampler = params.sampler
-    const cfg_scale = params.cfg_scale
-    const seed = params.seed
-    const height = params.height
-    const width = params.width
+const parsedetailParams = (detailParams, params) => {
+    const prompt = detailParams.prompt
+    const negative_prompt = detailParams.negative_prompt
+    const steps = detailParams.steps
+    const sampler = detailParams.sampler
+    const cfg_scale = detailParams.cfg_scale
+    const seed = detailParams.seed
+    const height = detailParams.height
+    const width = detailParams.width
     const model = params.model
-    const operation = params.operation
+    // const operation = detailParams.operation
 
-    if (operation == "i2i") {
-        return ''
-    }
+    // if (operation == "i2i") {
+    //     return ''
+    // }
 
     const model_hash = MODELS[model]
     const clip_skip = '2'
@@ -47,7 +47,7 @@ const parseRes = (res) => {
     if (!task) { console.log("No task associated"); return task; }
     const params = task.outputs.detailParameters
     const promptText = params.infotexts
-    if (!promptText) { return parseParams(params) }
+    if (!promptText) { return parseParams(params, task.parameters) }
     return promptText;
 
 }
@@ -140,9 +140,12 @@ const addIcon = async (promptText = '') => {
     }
 
 
-    targetElement.insertBefore(tooltip, targetElement.firstChild);
-    targetElement.insertBefore(copyIcon, targetElement.firstChild);
-    targetElement.insertBefore(infoIcon, targetElement.firstChild);
+    targetElement.appendChild(tooltip);
+    targetElement.appendChild(copyIcon);
+    targetElement.appendChild(infoIcon);
+    // targetElement.insertBefore(tooltip, targetElement.firstChild);
+    // targetElement.insertBefore(copyIcon, targetElement.firstChild);
+    // targetElement.insertBefore(infoIcon, targetElement.firstChild);
 }
 
 main = async () => {
