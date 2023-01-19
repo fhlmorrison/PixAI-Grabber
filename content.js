@@ -1,4 +1,4 @@
-const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.bg-gray-100.p-4.overflow-auto.shadow'
+const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.bg-gray-100.p-4.overflow-auto'
 const promptTitleQuery = 'div.font-bold.text-primary-light'
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
