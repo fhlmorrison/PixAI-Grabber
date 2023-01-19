@@ -15,7 +15,7 @@ const getArtId = () => {
     return targetElement.text.slice(26);
 }
 
-const parsedetailParams = (detailParams, params) => {
+const parseParams = (detailParams, params) => {
     const prompt = detailParams.prompt
     const negative_prompt = detailParams.negative_prompt
     const steps = detailParams.steps
