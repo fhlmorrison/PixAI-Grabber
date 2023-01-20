@@ -1,15 +1,9 @@
 const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.overflow-auto'
-// const promptTitleQuery = 'div.font-bold.text-primary-light'
 const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex'
 
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
 const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62' }
-/**
- *  --Add icon--
- * Change prompt display to replace existing
- * Have copy to clipboard button
- */
 
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
