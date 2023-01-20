@@ -1,9 +1,11 @@
 const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.overflow-auto'
 const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex'
 
+const buttonQuery = '.sc-kgTSHT.cFBAZz.MuiButtonBase-root.px-4.py-1.relative.no-underline.font-light.opacity-40'
+
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
-const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62' }
+const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '' }
 
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
@@ -76,7 +78,8 @@ const copyToClipboard = async (text) => {
 
 const addIcon = async (promptText = '') => {
     // Find the element on the page where you want to add the text
-    const targetElement = document.querySelector(promptTitleQuery);
+    // const targetElement = document.querySelector(promptTitleQuery);
+    const targetElement = document.querySelector(buttonQuery).parentElement;
 
     if (!targetElement) {
         console.error("promptTitle not found");
