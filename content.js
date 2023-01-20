@@ -1,5 +1,7 @@
-const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.bg-gray-100.p-4.overflow-auto'
-const promptTitleQuery = 'div.font-bold.text-primary-light'
+const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.overflow-auto'
+// const promptTitleQuery = 'div.font-bold.text-primary-light'
+const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex'
+
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
 const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62' }
@@ -65,7 +67,7 @@ const getPrompt = async (artId) => {
 
 const copyToClipboard = async (text) => {
     if (!navigator.clipboard) {
-        console.log('Browser does not support Copy to Clipboard')
+        console.error('Browser does not support Copy to Clipboard')
         return false;
     }
     let status = false
@@ -83,7 +85,7 @@ const addIcon = async (promptText = '') => {
     const targetElement = document.querySelector(promptTitleQuery);
 
     if (!targetElement) {
-        console.log("Not found");
+        console.error("promptTitle not found");
         return;
     }
 
@@ -109,6 +111,7 @@ const addIcon = async (promptText = '') => {
         infoIcon.style.cursor = 'pointer';
         copyIcon.style.cursor = 'pointer';
         const promptBox = document.querySelector(promptBoxQuery);
+        if (!promptBox) {console.error('promptBox not found'); return}
         const existing = promptBox.innerHTML;
         let showInfo = false;
 
