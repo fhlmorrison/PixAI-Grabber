@@ -5,7 +5,7 @@ const buttonQuery = '.sc-kgTSHT.cFBAZz.MuiButtonBase-root.px-4.py-1.relative.no-
 
 const urlQuery = 'a.underline.flex.items-center.truncate'
 
-const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '8838e0d1fb' }
+const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '8838e0d1fb', 'pixai-v1.15b': 'pixai-v1.15b' }
 
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
