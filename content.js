@@ -13,15 +13,18 @@ const getArtId = () => {
     return targetElement.text.slice(26);
 }
 
-const parseParams = (detailParams, params) => {
+const parseParams = (task) => {
+    detailParams = task.outputs.detailParameters
+    params = task.parameters
+    media = task.media
     const prompt = detailParams.prompt
     const negative_prompt = detailParams.negative_prompt
     const steps = detailParams.steps
     const sampler = detailParams.sampler
     const cfg_scale = detailParams.cfg_scale
     const seed = detailParams.seed
-    const height = detailParams.height
-    const width = detailParams.width
+    const height = detailParams.height || media.height
+    const width = detailParams.width || media.width
     const model = params.model
     // const operation = detailParams.operation
 
@@ -45,7 +48,7 @@ const parseRes = (res) => {
     if (!task) { console.log("No task associated"); return task; }
     const params = task.outputs.detailParameters
     const promptText = params.infotexts
-    if (!promptText) { return parseParams(params, task.parameters) }
+    if (!promptText) { return parseParams(task) }
     return promptText;
 
 }
