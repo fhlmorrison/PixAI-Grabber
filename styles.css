@@ -9,6 +9,11 @@
     float: right;
     transition: color .5s;
 }
+.prompt-link {
+    position: relative;
+    float: right;
+    transition: color .5s;
+}
 .prompt-copy-tooltip {
     opacity: 0;
     position: relative;

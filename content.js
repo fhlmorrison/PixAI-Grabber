@@ -5,7 +5,16 @@ const buttonQuery = '.sc-kgTSHT.cFBAZz.MuiButtonBase-root.px-4.py-1.relative.no-
 
 const urlQuery = 'a.sc-kgTSHT.cFBAZz.MuiButtonBase-root.MuiButton-root'
 
-const MODELS = { "Anything V3.0": '6569e224', "anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '8838e0d1fb', 'pixai-v1.15b': 'pixai-v1.15b' }
+const MODELS = {
+    "Anything V3.0": '6569e224',
+    "anything-v3.0": '6569e224',
+    'Anime': '925997e9',
+    'anime': '925997e9',
+    'anything-v4.5': 'fbcf965a62',
+    'counterfeit-v2.0': '8838e0d1fb',
+    'pixai-v1.15b': 'pixai-v1.15b',
+    'pastel-mix': 'pastel-mix'
+}
 
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
@@ -79,7 +88,7 @@ const copyToClipboard = async (text) => {
     return status;
 }
 
-const addIcon = async (promptText = '') => {
+const addIcon = async (promptText = '', artId) => {
     // Find the element on the page where you want to add the text
     // const targetElement = document.querySelector(promptTitleQuery);
     const targetElement = document.querySelector(buttonQuery).parentElement;
@@ -98,6 +107,11 @@ const addIcon = async (promptText = '') => {
     copyIcon.innerHTML = `<svg class="sc-ipEyDJ ewkAmK MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>`;
     copyIcon.className = 'prompt-copy';
 
+    const linkIcon = document.createElement('div');
+    linkIcon.innerHTML = `<a href="${artId}"><svg class="sc-ipEyDJ ewkAmK MuiSvgIcon-root MuiSvgIcon-fontSizeMedium" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a>`;
+    linkIcon.className = 'prompt-link';
+    linkIcon.style.cursor = 'pointer';
+    
     const tooltip = document.createElement('div');
     tooltip.innerHTML = 'Copied'
     tooltip.className = 'prompt-copy-tooltip'
@@ -146,10 +160,12 @@ const addIcon = async (promptText = '') => {
     targetElement.appendChild(tooltip);
     targetElement.appendChild(copyIcon);
     targetElement.appendChild(infoIcon);
+    targetElement.appendChild(linkIcon);
     // targetElement.insertBefore(tooltip, targetElement.firstChild);
     // targetElement.insertBefore(copyIcon, targetElement.firstChild);
     // targetElement.insertBefore(infoIcon, targetElement.firstChild);
 }
+
 
 main = async () => {
     artId = getArtId()
@@ -161,7 +177,7 @@ main = async () => {
     const examplePrompts = `masterpiece, best quality, {realistic}, {{{masterpiece}}}, {{highest quality}}, {absurdres}, dynamic action, solo female, captivating, happy to see you, original, doodle, {{dynamic lighting}}, dynamic angle, low angle, Beautifully lit, cinematic shot, close up, macrophotography, bokeh f4. Mature female, elf, dark skin (2.5), mocha skin, perfect proportions, toned tummy, midriff, heavenly thighs. Soft lips, soft smile, blushing, adoring expression. Elegant raven black hair, elven braid, shimmering hair, floating hair. Honey eyes, loving eyes, intricately-detailed eyes. Flat colors. Sparkling red sash with gold ribbons, translucent. Autumn forest, lense flare, floating orange leaves.
     Negative prompt: lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry
     Steps: 28, Sampler: Euler a, CFG scale: 11, Seed: 58300117, Size: 512x768, Model hash: 6569e224, Clip skip: 2, ENSD: 31337`
-    addIcon(promptText)
+    addIcon(promptText, artId)
 }
 
 
