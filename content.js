@@ -3,14 +3,14 @@ const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex
 
 const buttonQuery = '.sc-kgTSHT.cFBAZz.MuiButtonBase-root.px-4.py-1.relative.no-underline'
 
-const urlQuery = 'a.underline.flex.items-center.truncate'
+const urlQuery = 'a.sc-kgTSHT.cFBAZz.MuiButtonBase-root.MuiButton-root'
 
-const MODELS = { "Anything V3.0": '6569e224',"anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '8838e0d1fb', 'pixai-v1.15b': 'pixai-v1.15b' }
+const MODELS = { "Anything V3.0": '6569e224', "anything-v3.0": '6569e224', 'Anime': '925997e9', 'anime': '925997e9', 'anything-v4.5': 'fbcf965a62', 'counterfeit-v2.0': '8838e0d1fb', 'pixai-v1.15b': 'pixai-v1.15b' }
 
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
-    if (!targetElement) { return; }
-    return targetElement.text.slice(26);
+    if (!targetElement) { console.log("URL not found"); return; }
+    return targetElement.getAttribute('href').slice(6);
 }
 
 const parseParams = (task) => {
@@ -42,7 +42,7 @@ const parseParams = (task) => {
 
 
 const parseRes = (res) => {
-    const artwork  = res.data.artwork
+    const artwork = res.data.artwork
     if (!artwork) { console.log("No artwork associated"); return artwork; }
     const task = artwork.task
     if (!task) { console.log("No task associated"); return task; }
@@ -111,7 +111,7 @@ const addIcon = async (promptText = '') => {
         infoIcon.style.cursor = 'pointer';
         copyIcon.style.cursor = 'pointer';
         const promptBox = document.querySelector(promptBoxQuery);
-        if (!promptBox) {console.error('promptBox not found'); return}
+        if (!promptBox) { console.error('promptBox not found'); return }
         const existing = promptBox.innerHTML;
         let showInfo = false;
 
@@ -153,6 +153,7 @@ const addIcon = async (promptText = '') => {
 
 main = async () => {
     artId = getArtId()
+    console.log("ArtId: ", artId)
     promptText = await getPrompt(artId)
     console.log(promptText)
     // Fetch prompts
