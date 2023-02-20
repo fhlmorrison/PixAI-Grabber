@@ -13,7 +13,8 @@ const MODELS = {
     'anything-v4.5': 'fbcf965a62',
     'counterfeit-v2.0': '8838e0d1fb',
     'pixai-v1.15b': 'pixai-v1.15b',
-    'pastel-mix': 'pastel-mix'
+    'pastel-mix': 'pastel-mix',
+    'abyss-orange-mix-v2': 'abyss-orange-mix-v2'
 }
 
 const getArtId = () => {
