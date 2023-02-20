@@ -15,7 +15,7 @@ const MODELS = {
     'counterfeit-v2.5': 'counterfeit-v2.5',
     'pixai-v1.15b': 'pixai-v1.15b',
     'pastel-mix': 'pastel-mix',
-    'abyss-orange-mix-v2': 'abyss-orange-mix-v2'
+    'abyss-orange-mix-v2': '0873291ac5'
 }
 
 const getArtId = () => {
