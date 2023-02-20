@@ -12,7 +12,7 @@ const MODELS = {
     'anime': '925997e9',
     'anything-v4.5': 'fbcf965a62',
     'counterfeit-v2.0': '8838e0d1fb',
-    'counterfeit-v2.5': 'counterfeit-v2.5',
+    'counterfeit-v2.5': 'bd83b90a2e',
     'pixai-v1.15b': 'pixai-v1.15b',
     'pastel-mix': 'pastel-mix',
     'abyss-orange-mix-v2': '0873291ac5'
