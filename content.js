@@ -12,6 +12,7 @@ const MODELS = {
     'anime': '925997e9',
     'anything-v4.5': 'fbcf965a62',
     'counterfeit-v2.0': '8838e0d1fb',
+    'counterfeit-v2.5': 'counterfeit-v2.5',
     'pixai-v1.15b': 'pixai-v1.15b',
     'pastel-mix': 'pastel-mix',
     'abyss-orange-mix-v2': 'abyss-orange-mix-v2'
@@ -42,7 +43,7 @@ const parseParams = (task) => {
     //     return ''
     // }
 
-    const model_hash = MODELS[model]
+    const model_hash = MODELS[model] ?? model
     const clip_skip = '2'
     const ENSD = '31337'
 
