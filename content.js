@@ -3,7 +3,7 @@ const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex
 
 const buttonQuery = '.sc-kgTSHT.cFBAZz.MuiButtonBase-root.px-4.py-1.relative.no-underline'
 
-const urlQuery = 'a.sc-kgTSHT.cFBAZz.MuiButtonBase-root.MuiButton-root'
+const urlQuery = 'a[href^="/?aid"]'
 
 const MODELS = {
     "Anything V3.0": '6569e224',
@@ -54,6 +54,7 @@ const parseParams = (task) => {
 
 
 const parseRes = (res) => {
+    if (!res.data) { console.log("No data associated", res); return; }
     const artwork = res.data.artwork
     if (!artwork) { console.log("No artwork associated"); return artwork; }
     const task = artwork.task
