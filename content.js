@@ -174,7 +174,7 @@ const addIcon = async (promptText = '', artId) => {
 main = async () => {
     artId = getArtId()
     if (!artId) {
-        console.error('ArtId not found')
+        console.log('ArtId not found')
         return
     }
     console.log("ArtId: ", artId)
