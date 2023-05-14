@@ -1,9 +1,9 @@
 const promptBoxQuery = '.text-sm.relative.font-medium.rounded-lg.overflow-auto'
 const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex'
 
-const buttonQuery = '.sc-hHTYSt.gtKzIq.MuiButtonBase-root.px-4.py-1.relative.no-underline.font-semibold'
+const buttonQuery = '.sc-dIfARi.gbCagB.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.sc-hHTYSt.dnTtlO.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.capitalize'
 
-const urlQuery = 'a[href^="/?aid"]'
+const urlQuery = 'a[href^="/gallery?aid"]'
 
 const MODELS = {
     "Anything V3.0": '6569e224',
@@ -22,7 +22,7 @@ const MODELS = {
 const getArtId = () => {
     const targetElement = document.querySelector(urlQuery);
     if (!targetElement) { console.log("URL not found"); return; }
-    return targetElement.getAttribute('href').slice(6);
+    return targetElement.getAttribute('href').slice(-19);
 }
 
 const parseParams = (task) => {
