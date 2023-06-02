@@ -3,7 +3,7 @@ const promptTitleQuery = '.overflow-x-auto.relative.hide-scrollbar.border-b.flex
 
 const buttonQuery = '.sc-dIfARi.gbCagB.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.sc-hHTYSt.dnTtlO.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.capitalize'
 
-const urlQuery = 'a[href^="/gallery?aid"]'
+const urlQuery = 'a[href^="/?aid"]'
 
 const MODELS = {
     "Anything V3.0": '6569e224',
